@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head><title>Form with CSRF</title></head>
+<body>
+<h2>Submit Data</h2>
+<form th:action="@{/submit}" th:object="${formInput}" method="post">
+    <input type="text" th:field="*{data}" placeholder="Enter data"/>
+    <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
+    <button type="submit">Submit</button>
+</form>
+<p th:if="${message}" th:text="${message}"></p>
+</body>
+</html>
